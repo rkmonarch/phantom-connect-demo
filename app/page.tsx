@@ -23,6 +23,12 @@ export default function WalletButton() {
     console.log(signature);
   };
 
+  const getBalance = async () => {
+    if (!solana || !isAvailable) {
+      return;
+    }
+  };
+
   if (isConnected) {
     return (
       <div className="rounded-full border px-6 py-3 text-sm font-medium">
@@ -31,6 +37,9 @@ export default function WalletButton() {
         <br />
         <br />
         <button onClick={() => signMessage()}> sign message</button>
+        <br />
+        <br />
+        <button onClick={() => getBalance()}> get balance</button>
         <div className="flex gap-2">
           <button onClick={() => disconnect()}> Disconnect</button>
         </div>
